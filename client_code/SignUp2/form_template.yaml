@@ -36,7 +36,7 @@ components:
         properties:
           align: left
           margin: ['2', null, '2', null]
-          placeholder: Email
+          placeholder: Name
         type: TextBox
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
       name: grid_panel_1
@@ -45,23 +45,25 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: FQJUZE, width_xs: 6}
-        name: text_box_1_copy
+      - layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
+        name: drop_down_1
         properties:
-          align: left
-          margin: ['0', null, '0', null]
-          placeholder: Password
-        type: TextBox
-      - layout_properties: {col_xs: 2, row: ZKOUSZ, width_xs: 8}
-        name: label_3_copy
+          include_placeholder: true
+          items: [NSW, VIC, QLD, SA, WA, TAS, NT, ACT]
+          placeholder: Location
+        type: DropDown
+      layout_properties: {grid_position: 'RRKKOZ,PQOVES'}
+      name: grid_panel_5
+      properties: {}
+      type: GridPanel
+    - components:
+      - layout_properties: {col_xs: 3, row: GHKWUU, width_xs: 6}
+        name: drop_down_2
         properties:
-          align: center
-          italic: true
-          spacing:
-            margin: ['0', null, '0', null]
-            padding: ['0', null, '0', null]
-          text: '* must be at least 8 characters long'
-        type: Label
+          include_placeholder: true
+          items: [Cat, Dog, Bird]
+          placeholder: Preferred Pet
+        type: DropDown
       layout_properties: {grid_position: 'POKHMF,AIDTCJ'}
       name: grid_panel_3
       properties:
@@ -69,26 +71,25 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: MUGMWX, width_xs: 6}
-        name: button_1
+      - layout_properties: {col_xs: 3, row: TXLQVU, width_xs: 6}
+        name: drop_down_3
         properties:
-          spacing:
-            padding: [null, '50', null, '50']
-          text: Sign In
-        type: Button
+          include_placeholder: true
+          items: [Female, Male, Other]
+          placeholder: Gender
+        type: DropDown
       layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
       name: grid_panel_4
       properties: {}
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: NNHMBR, width_xs: 6}
-        name: button_2
+      - layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
+        name: button_1
         properties:
           spacing:
-            margin: ['0', null, '0', null]
-            padding: ['0', null, '0', null]
-          text: Register a New Account
-          underline: true
+            padding: [null, '50', null, '50']
+          text: |
+            Sign up
         type: Button
       layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
       name: grid_panel_2
