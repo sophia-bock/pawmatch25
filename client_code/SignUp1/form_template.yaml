@@ -39,7 +39,7 @@ components:
           placeholder: Email
         type: TextBox
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
-      name: grid_panel_1
+      name: email_panel
       properties:
         spacing:
           margin: ['0', null, '0', null]
@@ -63,7 +63,7 @@ components:
           text: '* must be at least 8 characters long'
         type: Label
       layout_properties: {grid_position: 'POKHMF,AIDTCJ'}
-      name: grid_panel_3
+      name: password_panel1
       properties:
         spacing:
           margin: ['0', null, '0', null]
@@ -77,11 +77,12 @@ components:
           placeholder: Confirm Password
         type: TextBox
       layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
-      name: grid_panel_4
+      name: password_panel2
       properties: {}
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: NNHMBR, width_xs: 6}
+      - event_bindings: {click: button_2_click}
+        layout_properties: {col_xs: 3, row: NNHMBR, width_xs: 6}
         name: button_2
         properties:
           spacing:
@@ -91,22 +92,22 @@ components:
           underline: false
         type: Button
       layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
-      name: grid_panel_2
+      name: next_panel
       properties:
         spacing:
           margin: ['0', null, '0', null]
       type: GridPanel
     data_bindings: []
     layout_properties: {grid_position: 'HRRFHD,BESMVC'}
-    name: column_panel_2
+    name: pink_box
     properties:
-      background: '#f3d8d8'
+      background: '#f0adca'
       spacing:
         margin: [null, '120', null, '120']
         padding: [null, null, null, null]
     type: ColumnPanel
   layout_properties: {slot: default}
-  name: column_panel_1
+  name: main_background
   properties: {}
   type: ColumnPanel
 container:

@@ -8,3 +8,6 @@ class SignUp1(SignUp1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def button_2_click(self, **event_args):
+    open_form('SignUp2')

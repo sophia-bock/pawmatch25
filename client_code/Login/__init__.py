@@ -13,6 +13,6 @@ class Login(LoginTemplate):
     """This method is called when an item is selected"""
 
   def button_2_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    pass
+    open_form('SignUp1')
+    
     

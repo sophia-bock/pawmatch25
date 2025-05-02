@@ -39,7 +39,7 @@ components:
           placeholder: Name
         type: TextBox
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
-      name: grid_panel_1
+      name: name_panel
       properties:
         spacing:
           margin: ['0', null, '0', null]
@@ -53,7 +53,7 @@ components:
           placeholder: Location
         type: DropDown
       layout_properties: {grid_position: 'RRKKOZ,PQOVES'}
-      name: grid_panel_5
+      name: location_panel
       properties: {}
       type: GridPanel
     - components:
@@ -65,7 +65,7 @@ components:
           placeholder: Preferred Pet
         type: DropDown
       layout_properties: {grid_position: 'POKHMF,AIDTCJ'}
-      name: grid_panel_3
+      name: pet_panel
       properties:
         spacing:
           margin: ['0', null, '0', null]
@@ -79,7 +79,7 @@ components:
           placeholder: Gender
         type: DropDown
       layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
-      name: grid_panel_4
+      name: gender_panel
       properties: {}
       type: GridPanel
     - components:
@@ -92,22 +92,22 @@ components:
             Sign up
         type: Button
       layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
-      name: grid_panel_2
+      name: signup_panel
       properties:
         spacing:
           margin: ['0', null, '0', null]
       type: GridPanel
     data_bindings: []
     layout_properties: {grid_position: 'HRRFHD,BESMVC'}
-    name: column_panel_2
+    name: pink_box
     properties:
-      background: '#f3d8d8'
+      background: '#f0adca'
       spacing:
         margin: [null, '120', null, '120']
         padding: [null, null, null, null]
     type: ColumnPanel
   layout_properties: {slot: default}
-  name: column_panel_1
+  name: main_background
   properties: {}
   type: ColumnPanel
 container:
