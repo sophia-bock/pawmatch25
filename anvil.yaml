@@ -1,9 +1,18 @@
 allow_embedding: false
 name: Custom HTML 1
+native_deps:
+  head_html: |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&family=Edu+TAS+Beginner:wght@400..700&family=Honk&family=Jaro:opsz@6..72&family=Kode+Mono:wght@400..700&family=Moo+Lah+Lah&family=Playwrite+IT+Moderna:wght@100..400&family=Rowdies:wght@300;400;700&family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
 package_name: Custom_HTML_1
 runtime_options:
   client_version: '3'
   server_spec: {base: python310-minimal}
   server_version: python3-sandbox
   version: 2
-services: []
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+startup_form: Form1
