@@ -1,8 +1,8 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import LoginTemplate
 from anvil import *
 
 
-class Form1(Form1Template):
+class Login(LoginTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -11,4 +11,8 @@ class Form1(Form1Template):
 
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
     
