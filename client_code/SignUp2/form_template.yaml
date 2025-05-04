@@ -83,7 +83,8 @@ components:
       properties: {}
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
+      - event_bindings: {click: button_1_click}
+        layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
         name: button_1
         properties:
           spacing:

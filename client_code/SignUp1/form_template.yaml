@@ -32,7 +32,7 @@ components:
       type: Label
     - components:
       - layout_properties: {col_xs: 3, row: UQOQOL, width_xs: 6}
-        name: text_box_1
+        name: email_box
         properties:
           align: left
           margin: ['2', null, '2', null]
@@ -46,7 +46,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: FQJUZE, width_xs: 6}
-        name: text_box_1_copy
+        name: password_box
         properties:
           align: left
           margin: ['0', null, '0', null]
@@ -70,7 +70,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: WFPAST, width_xs: 6}
-        name: text_box_1_copy_copy
+        name: confirm_password_box
         properties:
           align: left
           margin: ['0', null, '0', null]

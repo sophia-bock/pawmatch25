@@ -1,4 +1,28 @@
 allow_embedding: false
+db_schema:
+  users:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: email
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: password
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: location
+      type: string
+    - admin_ui: {order: 4, width: 200}
+      name: preferred_pet
+      type: string
+    - admin_ui: {order: 5, width: 200}
+      name: gender
+      type: string
+    server: full
+    title: users
 metadata: {description: Assessment 1, title: PawMatch}
 name: PawMatch
 native_deps:
