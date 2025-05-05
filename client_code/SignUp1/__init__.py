@@ -6,7 +6,7 @@ class SignUp1(SignUp1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
 
-    def button_2_click(self, **event_args):
+  def next_button_click(self, **event_args):
       email = self.email_box.text
       password = self.password_box.text
       confirm_password = self.confirm_password_box.text

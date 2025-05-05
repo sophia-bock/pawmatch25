@@ -81,9 +81,9 @@ components:
       properties: {}
       type: GridPanel
     - components:
-      - event_bindings: {click: button_2_click}
+      - event_bindings: {click: next_button_click}
         layout_properties: {col_xs: 3, row: NNHMBR, width_xs: 6}
-        name: button_2
+        name: next_button
         properties:
           spacing:
             margin: ['0', null, '0', null]
