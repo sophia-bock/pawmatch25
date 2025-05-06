@@ -32,7 +32,7 @@ components:
       type: Label
     - components:
       - layout_properties: {col_xs: 3, row: UQOQOL, width_xs: 6}
-        name: text_box_1
+        name: name_box
         properties:
           align: left
           margin: ['2', null, '2', null]
@@ -46,7 +46,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
-        name: drop_down_1
+        name: location_box
         properties:
           include_placeholder: true
           items: [NSW, VIC, QLD, SA, WA, TAS, NT, ACT]
@@ -58,7 +58,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: GHKWUU, width_xs: 6}
-        name: drop_down_2
+        name: pet_breed_box
         properties:
           include_placeholder: true
           items: [Cat, Dog, Bird]
@@ -72,7 +72,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: TXLQVU, width_xs: 6}
-        name: drop_down_3
+        name: gender_box
         properties:
           include_placeholder: true
           items: [Female, Male, Other]
@@ -85,7 +85,7 @@ components:
     - components:
       - event_bindings: {click: button_1_click}
         layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
-        name: button_1
+        name: signup_button
         properties:
           spacing:
             padding: [null, '50', null, '50']

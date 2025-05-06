@@ -11,13 +11,13 @@ class SignUp2(SignUp2Template):
     self.email = email
     self.raw_password = raw_password
 
-  def button_1_click(self, **event_args):
-    pet_name = self.pet_name_box.text
+  def signup_button(self, **event_args):
+    name = self.name_box.text
     pet_breed = self.pet_breed_box.text
     location = self.location_box.text
 
     # Call the server function to create the user
-    anvil.server.call('create_user', self.email, self.raw_password, pet_name, pet_breed, location)
+    anvil.server.call('create_user', self.email, self.raw_password, name, pet_breed, location)
     alert("Account created!")
     open_form('Login')
 

@@ -82,14 +82,13 @@ components:
       type: GridPanel
     - components:
       - event_bindings: {click: next_button_click}
-        layout_properties: {col_xs: 3, row: NNHMBR, width_xs: 6}
+        layout_properties: {col_xs: 3, row: OPKRMX, width_xs: 5}
         name: next_button
         properties:
+          align: center
           spacing:
-            margin: ['0', null, '0', null]
-            padding: ['0', null, '0', null]
+            padding: [null, '20', null, '20']
           text: Next
-          underline: false
         type: Button
       layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
       name: next_panel
