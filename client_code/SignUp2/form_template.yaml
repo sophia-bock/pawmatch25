@@ -85,7 +85,7 @@ components:
     - components:
       - event_bindings: {click: button_1_click}
         layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
-        name: signup_button
+        name: button_1
         properties:
           spacing:
             padding: [null, '50', null, '50']

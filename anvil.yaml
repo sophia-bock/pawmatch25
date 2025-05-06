@@ -10,13 +10,13 @@ db_schema:
       name: password
       type: string
     - admin_ui: {order: 2, width: 200}
-      name: name
+      name: pet_name
       type: string
     - admin_ui: {order: 3, width: 200}
       name: location
       type: string
     - admin_ui: {order: 4, width: 200}
-      name: preferred_pet
+      name: pet_breed
       type: string
     - admin_ui: {order: 5, width: 200}
       name: gender

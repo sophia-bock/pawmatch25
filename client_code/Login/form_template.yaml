@@ -69,8 +69,9 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: MUGMWX, width_xs: 6}
-        name: button_1
+      - event_bindings: {click: button_login_click}
+        layout_properties: {col_xs: 3, row: MUGMWX, width_xs: 6}
+        name: button_login
         properties:
           spacing:
             padding: [null, '50', null, '50']
