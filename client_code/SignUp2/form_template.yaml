@@ -28,7 +28,7 @@ components:
         spacing:
           margin: ['0', null, '0', null]
           padding: ['0', null, '0', null]
-        text: Find your dream pet today
+        text: Life's ruff, but a pet makes it purrfect!
       type: Label
     - components:
       - layout_properties: {col_xs: 3, row: UQOQOL, width_xs: 6}

@@ -10,16 +10,22 @@ db_schema:
       name: password
       type: string
     - admin_ui: {order: 2, width: 200}
-      name: pet_name
+      name: name
       type: string
     - admin_ui: {order: 3, width: 200}
-      name: location
+      name: pet_location_preference
       type: string
     - admin_ui: {order: 4, width: 200}
-      name: pet_breed
+      name: pet_breed_preference
       type: string
     - admin_ui: {order: 5, width: 200}
-      name: gender
+      name: pet_gender_preference
+      type: string
+    - admin_ui: {order: 6, width: 200}
+      name: pet_size_preference
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: pet_age_preference
       type: string
     server: full
     title: users
