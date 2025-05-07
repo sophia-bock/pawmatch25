@@ -18,7 +18,7 @@ components:
         spacing:
           margin: ['0', null, '0', null]
           padding: ['0', null, '0', null]
-        text: Login
+        text: Pet Preferences
       type: Label
     - layout_properties: {grid_position: 'RHYPET,YEDWHP'}
       name: label_3
@@ -31,13 +31,13 @@ components:
         text: Life's ruff, but a pet makes it purrfect!
       type: Label
     - components:
-      - layout_properties: {col_xs: 3, row: UQOQOL, width_xs: 6}
-        name: name_box
+      - layout_properties: {col_xs: 3, row: MRZEAH, width_xs: 6}
+        name: size_box
         properties:
-          align: left
-          margin: ['2', null, '2', null]
-          placeholder: Name
-        type: TextBox
+          include_placeholder: true
+          items: [NSW, VIC, QLD, SA, WA, TAS, NT, ACT]
+          placeholder: Location
+        type: DropDown
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
       name: name_panel
       properties:
@@ -75,8 +75,8 @@ components:
         name: gender_box
         properties:
           include_placeholder: true
-          items: [Female, Male, Other]
-          placeholder: Gender
+          items: [Female, Male]
+          placeholder: Pet Gender
         type: DropDown
       layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
       name: gender_panel

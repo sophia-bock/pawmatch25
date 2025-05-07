@@ -45,14 +45,28 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: FQJUZE, width_xs: 6}
+      - layout_properties: {col_xs: 3, row: KEDNYW, width_xs: 6}
+        name: email_box_copy
+        properties:
+          align: left
+          margin: ['2', null, '2', null]
+          placeholder: Username
+        type: TextBox
+      layout_properties: {grid_position: 'POKHMF,AIDTCJ'}
+      name: password_panel1
+      properties:
+        spacing:
+          margin: ['0', null, '0', null]
+      type: GridPanel
+    - components:
+      - layout_properties: {col_xs: 3, row: UJPPNQ, width_xs: 6}
         name: password_box
         properties:
           align: left
           margin: ['0', null, '0', null]
           placeholder: Password
         type: TextBox
-      - layout_properties: {col_xs: 2, row: ZKOUSZ, width_xs: 8}
+      - layout_properties: {col_xs: 2, row: SJWOZO, width_xs: 8}
         name: label_3_copy
         properties:
           align: center
@@ -62,27 +76,27 @@ components:
             padding: ['0', null, '0', null]
           text: '* must be at least 8 characters long'
         type: Label
-      layout_properties: {grid_position: 'POKHMF,AIDTCJ'}
-      name: password_panel1
-      properties:
-        spacing:
-          margin: ['0', null, '0', null]
+      layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
+      name: password_panel2
+      properties: {}
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: WFPAST, width_xs: 6}
+      - layout_properties: {col_xs: 3, row: DBXAOG, width_xs: 6}
         name: confirm_password_box
         properties:
           align: left
           margin: ['0', null, '0', null]
           placeholder: Confirm Password
         type: TextBox
-      layout_properties: {grid_position: 'FJEBQG,DTGFPF'}
-      name: password_panel2
-      properties: {}
+      layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
+      name: next_panel
+      properties:
+        spacing:
+          margin: ['0', null, '0', null]
       type: GridPanel
     - components:
       - event_bindings: {click: next_button_click}
-        layout_properties: {col_xs: 3, row: OPKRMX, width_xs: 5}
+        layout_properties: {col_xs: 3, row: YCMQMZ, width_xs: 5}
         name: next_button
         properties:
           align: center
@@ -90,11 +104,9 @@ components:
             padding: [null, '20', null, '20']
           text: Next
         type: Button
-      layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
-      name: next_panel
-      properties:
-        spacing:
-          margin: ['0', null, '0', null]
+      layout_properties: {grid_position: 'UWKRSP,EIBZRO'}
+      name: grid_panel_1
+      properties: {}
       type: GridPanel
     data_bindings: []
     layout_properties: {grid_position: 'HRRFHD,BESMVC'}
