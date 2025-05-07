@@ -9,7 +9,7 @@ def hash_password(password):
   return hashlib.sha256(password.encode()).hexdigest()
 
 @anvil.server.callable
-def create_user(email, password, pet_name, pet_breed, location):
+def create_user(email, password, username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference):
   # Prevent duplicate email registration
   if app_tables.users.get(email=email):
     raise Exception("An account with this email already exists.")
@@ -18,9 +18,7 @@ def create_user(email, password, pet_name, pet_breed, location):
   app_tables.users.add_row(
     email=email,
     password=hashed,
-    pet_name=pet_name,
-    pet_breed=pet_breed,
-    location=location
+    username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference
   )
 
 

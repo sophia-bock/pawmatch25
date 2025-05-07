@@ -35,8 +35,8 @@ components:
         name: size_box
         properties:
           include_placeholder: true
-          items: [NSW, VIC, QLD, SA, WA, TAS, NT, ACT]
-          placeholder: Location
+          items: [small, medium, large]
+          placeholder: Pet Size
         type: DropDown
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
       name: name_panel
@@ -45,12 +45,13 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
+      - event_bindings: {change: location_box_change}
+        layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
         name: location_box
         properties:
           include_placeholder: true
           items: [NSW, VIC, QLD, SA, WA, TAS, NT, ACT]
-          placeholder: Location
+          placeholder: Pet Location
         type: DropDown
       layout_properties: {grid_position: 'RRKKOZ,PQOVES'}
       name: location_panel
@@ -83,8 +84,22 @@ components:
       properties: {}
       type: GridPanel
     - components:
+      - layout_properties: {col_xs: 3, row: QJXFQK, width_xs: 6}
+        name: age_box
+        properties:
+          include_placeholder: true
+          items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+          placeholder: Pet Age
+        type: DropDown
+      layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
+      name: signup_panel
+      properties:
+        spacing:
+          margin: ['0', null, '0', null]
+      type: GridPanel
+    - components:
       - event_bindings: {click: button_1_click}
-        layout_properties: {col_xs: 3, row: GFEXQZ, width_xs: 6}
+        layout_properties: {col_xs: 0, row: AGFNHY, width_xs: 12}
         name: button_1
         properties:
           spacing:
@@ -92,11 +107,9 @@ components:
           text: |
             Sign up
         type: Button
-      layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
-      name: signup_panel
-      properties:
-        spacing:
-          margin: ['0', null, '0', null]
+      layout_properties: {grid_position: 'XXAZUZ,VSJWBK'}
+      name: grid_panel_1
+      properties: {}
       type: GridPanel
     data_bindings: []
     layout_properties: {grid_position: 'HRRFHD,BESMVC'}

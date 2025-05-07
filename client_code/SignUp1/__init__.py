@@ -9,6 +9,7 @@ class SignUp1(SignUp1Template):
   def next_button_click(self, **event_args):
       email = self.email_box.text
       password = self.password_box.text
+      username = self.username_box.text
       confirm_password = self.confirm_password_box.text
 
       # Check if passwords match
@@ -28,6 +29,6 @@ class SignUp1(SignUp1Template):
         return 
       else:
         # If everything is valid, pass data to SignUp2
-        open_form('SignUp2', email=email, raw_password=password)
+        open_form('SignUp2', email=email, raw_password=password, username=username)
 
         

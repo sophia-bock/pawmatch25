@@ -46,7 +46,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: KEDNYW, width_xs: 6}
-        name: email_box_copy
+        name: username_box
         properties:
           align: left
           margin: ['2', null, '2', null]
