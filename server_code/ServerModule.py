@@ -2,11 +2,16 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import secrets
 import hashlib
 
 @anvil.server.callable
 def hash_password(password):
-  return hashlib.sha256(password.encode()).hexdigest()
+  # Generate a random salt
+  salt = secrets.token_hex(16)  # 32 characters of hex = 16 bytes
+  salted_password = salt + password
+  hashed = hashlib.sha256(salted_password.encode()).hexdigest()
+  return f"{salt}${hashed}"  # Store salt and hash together
 
 @anvil.server.callable
 def create_user(email, password, username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference):
@@ -18,7 +23,12 @@ def create_user(email, password, username, pet_location_preference, pet_breed_pr
   app_tables.users.add_row(
     email=email,
     password=hashed,
-    self.username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference
+    username=username,
+    pet_location_preference=pet_location_preference, 
+    pet_breed_preference=pet_breed_preference, 
+    pet_gender_preference=pet_gender_preference, 
+    pet_size_preference=pet_size_preference, 
+    pet_age_preference=pet_age_preference,
   )
 
 
