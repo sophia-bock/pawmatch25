@@ -18,7 +18,7 @@ def create_user(email, password, username, pet_location_preference, pet_breed_pr
   app_tables.users.add_row(
     email=email,
     password=hashed,
-    username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference
+    self.username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference
   )
 
 
