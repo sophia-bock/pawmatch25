@@ -27,6 +27,21 @@ db_schema:
     - admin_ui: {order: 7, width: 200}
       name: pet_age_preference
       type: string
+    - admin_ui: {order: 8, width: 200}
+      name: pet_size_rank
+      type: number
+    - admin_ui: {order: 9, width: 200}
+      name: pet_age_rank
+      type: number
+    - admin_ui: {order: 10, width: 200}
+      name: pet_type_rank
+      type: number
+    - admin_ui: {order: 11, width: 200}
+      name: pet_location_rank
+      type: number
+    - admin_ui: {order: 12, width: 200}
+      name: pet_gender_rank
+      type: number
     server: full
     title: users
 metadata: {description: Assessment 1, title: PawMatch}

@@ -105,7 +105,7 @@ components:
           spacing:
             padding: [null, '50', null, '50']
           text: |
-            Sign up
+            Next
         type: Button
       layout_properties: {grid_position: 'XXAZUZ,VSJWBK'}
       name: grid_panel_1
