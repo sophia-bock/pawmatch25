@@ -19,12 +19,7 @@ class SignUp2(SignUp2Template):
     pet_size_preference = self.size_box.selected_value
     pet_age_preference = self.age_box.selected_value
     
-    
-
-    # Call the server function to create the user
-    anvil.server.call('create_user', self.email, self.raw_password, self.username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference)
-    alert("Account created!")
-    open_form('Home')
+    open_form('SignUp3')
 
 
 

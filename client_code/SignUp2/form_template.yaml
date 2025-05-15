@@ -35,7 +35,7 @@ components:
         name: size_box
         properties:
           include_placeholder: true
-          items: [small, medium, large]
+          items: [Small, Medium, Large]
           placeholder: Pet Size
         type: DropDown
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
