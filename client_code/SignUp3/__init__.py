@@ -15,6 +15,7 @@ class SignUp3(SignUp3Template):
     self.pet_gender_preference = pet_gender_preference
     self.pet_size_preference = pet_size_preference
     self.pet_age_preference = pet_age_preference
+    self.pet_ear_preference = pet_ear_preference
 
   def signup_button_click(self, **event_args):
     # Read rankings from radio buttons
