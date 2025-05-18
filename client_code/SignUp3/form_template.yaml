@@ -1,8 +1,4 @@
 components:
-- layout_properties: {slot: default}
-  name: content_panel
-  properties: {}
-  type: ColumnPanel
 - components:
   - data_bindings: []
     layout_properties: {grid_position: 'OOPHCO,XRQWZG'}
@@ -179,6 +175,10 @@ components:
     type: ColumnPanel
   layout_properties: {slot: default}
   name: main_background
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: default}
+  name: content_panel
   properties: {}
   type: ColumnPanel
 container:
