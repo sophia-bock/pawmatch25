@@ -14,21 +14,30 @@ def hash_password(password):
   return f"{salt}${hashed}"  # Store salt and hash together
 
 @anvil.server.callable
-def create_user(email, password, username, pet_location_preference, pet_breed_preference, pet_gender_preference, pet_size_preference, pet_age_preference):
-  # Prevent duplicate email registration
+def create_user(email, password, username,
+                pet_location_preference, pet_breed_preference,
+                pet_gender_preference, pet_size_preference, pet_age_preference,
+                rankings):
+
   if app_tables.users.get(email=email):
     raise Exception("An account with this email already exists.")
 
   hashed = hash_password(password)
+
   app_tables.users.add_row(
     email=email,
     password=hashed,
     username=username,
-    pet_location_preference=pet_location_preference, 
-    pet_breed_preference=pet_breed_preference, 
-    pet_gender_preference=pet_gender_preference, 
-    pet_size_preference=pet_size_preference, 
+    pet_location_preference=pet_location_preference,
+    pet_breed_preference=pet_breed_preference,
+    pet_gender_preference=pet_gender_preference,
+    pet_size_preference=pet_size_preference,
     pet_age_preference=pet_age_preference,
+    rank_size=rankings['size'],
+    rank_age=rankings['age'],
+    rank_type=rankings['type'],
+    rank_location=rankings['location'],
+    rank_gender=rankings['gender']
   )
 
 
@@ -43,9 +52,3 @@ def login_user(email, password):
 @anvil.server.callable
 def check_email_exists(email):
   return app_tables.users.get(email=email) is not None
-
-
-  
-
-
-  
