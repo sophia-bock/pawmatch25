@@ -64,9 +64,10 @@ components:
         type: ColumnPanel
       - components:
         - components:
-          - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+          - event_bindings: {clicked: size_1_clicked}
+            layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: size_1
-            properties: {text: '1'}
+            properties: {group_name: size_rank_group, text: '1', value: '1'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,JXFTVU'}
           name: column_panel_2
@@ -75,16 +76,17 @@ components:
         - components:
           - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
             name: size_2
-            properties: {text: '2'}
+            properties: {group_name: size_rank_group, selected: false, text: '2', value: '2'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,CXBOPC'}
           name: column_panel_3
           properties: {}
           type: ColumnPanel
         - components:
-          - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+          - data_bindings: []
+            layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
             name: size_3
-            properties: {text: '3'}
+            properties: {group_name: size_rank_group, text: '3', value: '3'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,XOOAQD'}
           name: column_panel_4
@@ -93,7 +95,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
             name: size_4
-            properties: {text: '4'}
+            properties: {group_name: size_rank_group, text: '4', value: '4'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
           name: column_panel_5
@@ -102,7 +104,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
             name: size_5
-            properties: {text: '5'}
+            properties: {group_name: size_rank_group, text: '5', value: '5'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,AULSNE'}
           name: column_panel_6
@@ -130,7 +132,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: age_1
-            properties: {text: '1'}
+            properties: {group_name: age_rank_group, text: '1', value: '1'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,JXFTVU'}
           name: column_panel_2_copy
@@ -139,7 +141,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
             name: age_2
-            properties: {text: '2'}
+            properties: {group_name: age_rank_group, text: '2', value: '2'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,CXBOPC'}
           name: column_panel_3_copy
@@ -148,7 +150,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
             name: age_3
-            properties: {text: '3'}
+            properties: {group_name: age_rank_group, text: '3', value: '3'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,XOOAQD'}
           name: column_panel_4_copy
@@ -157,7 +159,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
             name: age_4
-            properties: {text: '4'}
+            properties: {group_name: age_rank_group, text: '4', value: '4'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
           name: column_panel_5_copy
@@ -166,7 +168,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
             name: age_5
-            properties: {text: '5'}
+            properties: {group_name: age_rank_group, text: '5', value: '5'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,AULSNE'}
           name: column_panel_6_copy
@@ -194,7 +196,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: type_1
-            properties: {text: '1'}
+            properties: {group_name: type_rank_group, text: '1', value: '1'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,JXFTVU'}
           name: column_panel_2_copy_2
@@ -203,7 +205,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
             name: type_2
-            properties: {text: '2'}
+            properties: {group_name: type_rank_group, text: '2', value: '2'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,CXBOPC'}
           name: column_panel_3_copy_2
@@ -212,7 +214,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
             name: type_3
-            properties: {text: '3'}
+            properties: {group_name: type_rank_group, text: '3', value: '3'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,XOOAQD'}
           name: column_panel_4_copy_2
@@ -221,7 +223,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
             name: type_4
-            properties: {text: '4'}
+            properties: {group_name: type_rank_group, text: '4', value: '4'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
           name: column_panel_5_copy_2
@@ -230,7 +232,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
             name: type_5
-            properties: {text: '5'}
+            properties: {group_name: type_rank_group, text: '5', value: '5'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,AULSNE'}
           name: column_panel_6_copy_2
@@ -258,7 +260,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: location_1
-            properties: {text: '1'}
+            properties: {group_name: location_rank_group, text: '1', value: '1'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,JXFTVU'}
           name: column_panel_2_copy_2_copy
@@ -268,7 +270,7 @@ components:
           - event_bindings: {clicked: size_2_copy_2_copy_clicked}
             layout_properties: {grid_position: 'COWZQK,SEWRQO'}
             name: location_2
-            properties: {text: '2'}
+            properties: {group_name: location_rank_group, text: '2', value: '2'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,CXBOPC'}
           name: column_panel_3_copy_2_copy
@@ -277,7 +279,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
             name: location_3
-            properties: {text: '3'}
+            properties: {group_name: location_rank_group, text: '3', value: '3'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,XOOAQD'}
           name: panel
@@ -286,7 +288,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
             name: location_4
-            properties: {text: '4'}
+            properties: {group_name: location_rank_group, text: '4', value: '4'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
           name: column_panel_5_copy_2_copy
@@ -295,7 +297,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
             name: location_5
-            properties: {text: '5'}
+            properties: {group_name: location_rank_group, text: '5', value: '5'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,AULSNE'}
           name: panel1
@@ -323,7 +325,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: gender_1
-            properties: {text: '1'}
+            properties: {group_name: gender_rank_group, text: '1', value: '1'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,JXFTVU'}
           name: column_panel_2_copy_2_copy_copy
@@ -332,7 +334,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
             name: gender_2
-            properties: {text: '2'}
+            properties: {group_name: gender_rank_group, text: '2', value: '2'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,CXBOPC'}
           name: column_panel_3_copy_2_copy_copy
@@ -341,7 +343,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
             name: gender_3
-            properties: {text: '3'}
+            properties: {group_name: gender_rank_group, text: '3', value: '3'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,XOOAQD'}
           name: column_panel_4_copy_2_copy_copy
@@ -350,7 +352,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
             name: gender_4
-            properties: {text: '4'}
+            properties: {group_name: gender_rank_group, text: '4', value: '4'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
           name: column_panel_5_copy_2_copy_copy
@@ -359,7 +361,7 @@ components:
         - components:
           - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
             name: gender_5
-            properties: {text: '5'}
+            properties: {group_name: gender_rank_group, text: '5', value: '5'}
             type: RadioButton
           layout_properties: {grid_position: 'HNECLY,AULSNE'}
           name: column_panel_6_copy_2_copy_copy
