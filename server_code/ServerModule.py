@@ -5,6 +5,10 @@ import anvil.server
 import secrets
 import hashlib
 
+
+
+
+
 @anvil.server.callable
 def hash_password(password):
   # Generate a random salt
