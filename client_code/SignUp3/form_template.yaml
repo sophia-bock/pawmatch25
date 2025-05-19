@@ -60,7 +60,7 @@ components:
         type: ColumnPanel
       - components:
         - components:
-          - event_bindings: {clicked: size_1_clicked}
+          - event_bindings: {clicked: size_rank_group.selected_value}
             layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
             name: size_1
             properties: {group_name: size_rank_group, text: '1', value: '1'}
