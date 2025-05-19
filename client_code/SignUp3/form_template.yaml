@@ -6,7 +6,7 @@ components:
     properties: {align: center, font: Moo Lah Lah, font_size: 120, foreground: '#f0adca', text: PawMatch}
     type: Label
   - components:
-    - layout_properties: {grid_position: 'NBAZMZ,VPYQBN'}
+    - layout_properties: {grid_position: 'FKGPYA,KUAWQV'}
       name: label_2
       properties:
         align: center
@@ -16,7 +16,7 @@ components:
           padding: ['0', null, '0', null]
         text: Pet Rankings
       type: Label
-    - layout_properties: {grid_position: 'RHYPET,YEDWHP'}
+    - layout_properties: {grid_position: 'NWLNUD,FNUIOZ'}
       name: label_3
       properties:
         align: center
@@ -26,26 +26,366 @@ components:
           padding: ['0', null, '0', null]
         text: Life's ruff, but a pet makes it purrfect!
       type: Label
+    - layout_properties: {grid_position: 'MQNOUZ,CTZELM'}
+      name: label_3_copy
+      properties:
+        align: center
+        bold: true
+        italic: false
+        spacing:
+          margin: ['0', null, '0', null]
+          padding: ['0', null, '0', null]
+        text: Rank the important of each pet characteristic out of 5
+      type: Label
+    - layout_properties: {grid_position: 'AKKNEL,QSBWWB'}
+      name: label_3_copy_copy
+      properties:
+        align: center
+        bold: true
+        italic: false
+        spacing:
+          margin: ['0', null, '0', null]
+          padding: ['0', null, '0', null]
+        text: Please pick a different number for each pet
+      type: Label
     - components:
-      - event_bindings: {click: button_1_click}
-        layout_properties: {col_xs: 0, row: AGFNHY, width_xs: 12}
-        name: button_1
-        properties:
-          spacing:
-            padding: [null, '50', null, '50']
-          text: |
-            Sign up
-        type: Button
-      layout_properties: {grid_position: 'XXAZUZ,VSJWBK'}
-      name: grid_panel_1
-      properties: {}
-      type: GridPanel
+      - components:
+        - layout_properties: {grid_position: 'ECTQCL,AYIIYL'}
+          name: label_4
+          properties: {align: center, text: Size}
+          type: Label
+        layout_properties: {grid_position: 'EFHQIS,ZKMVRK'}
+        name: column_panel_9
+        properties: {}
+        type: ColumnPanel
+      - components:
+        - components:
+          - event_bindings: {clicked: size_1_clicked}
+            layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+            name: size_1
+            properties: {group_name: size_rank_group, text: '1', value: '1'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,JXFTVU'}
+          name: column_panel_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
+            name: size_2
+            properties: {group_name: size_rank_group, selected: false, text: '2', value: '2'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,CXBOPC'}
+          name: column_panel_3
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - data_bindings: []
+            layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+            name: size_3
+            properties: {group_name: size_rank_group, text: '3', value: '3'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,XOOAQD'}
+          name: column_panel_4
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
+            name: size_4
+            properties: {group_name: size_rank_group, text: '4', value: '4'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
+          name: column_panel_5
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
+            name: size_5
+            properties: {group_name: size_rank_group, text: '5', value: '5'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,AULSNE'}
+          name: column_panel_6
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'EFHQIS,NBHYZN'}
+        name: column_panel_1
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'XPRIHG,OJGISF'}
+      name: column_panel_7
+      properties: {col_widths: '{"ZKMVRK":20,"NBHYZN":40}'}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'BHEMCG,HZSIRB'}
+          name: label_4_copy
+          properties: {align: center, text: Age}
+          type: Label
+        layout_properties: {grid_position: 'EFHQIS,ZKMVRK'}
+        name: column_panel_9_copy
+        properties: {}
+        type: ColumnPanel
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+            name: age_1
+            properties: {group_name: age_rank_group, text: '1', value: '1'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,JXFTVU'}
+          name: column_panel_2_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
+            name: age_2
+            properties: {group_name: age_rank_group, text: '2', value: '2'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,CXBOPC'}
+          name: column_panel_3_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+            name: age_3
+            properties: {group_name: age_rank_group, text: '3', value: '3'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,XOOAQD'}
+          name: column_panel_4_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
+            name: age_4
+            properties: {group_name: age_rank_group, text: '4', value: '4'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
+          name: column_panel_5_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
+            name: age_5
+            properties: {group_name: age_rank_group, text: '5', value: '5'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,AULSNE'}
+          name: column_panel_6_copy
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'EFHQIS,NBHYZN'}
+        name: column_panel_1_copy
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'EVTMEC,IEBNHF'}
+      name: column_panel_7_copy
+      properties: {col_widths: '{"ZKMVRK":20,"NBHYZN":40}'}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'GKTSAJ,TATVAC'}
+          name: label_4_copy_2
+          properties: {align: center, text: Type}
+          type: Label
+        layout_properties: {grid_position: 'EFHQIS,ZKMVRK'}
+        name: column_panel_9_copy_2
+        properties: {}
+        type: ColumnPanel
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+            name: type_1
+            properties: {group_name: type_rank_group, text: '1', value: '1'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,JXFTVU'}
+          name: column_panel_2_copy_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
+            name: type_2
+            properties: {group_name: type_rank_group, text: '2', value: '2'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,CXBOPC'}
+          name: column_panel_3_copy_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+            name: type_3
+            properties: {group_name: type_rank_group, text: '3', value: '3'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,XOOAQD'}
+          name: column_panel_4_copy_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
+            name: type_4
+            properties: {group_name: type_rank_group, text: '4', value: '4'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
+          name: column_panel_5_copy_2
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
+            name: type_5
+            properties: {group_name: type_rank_group, text: '5', value: '5'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,AULSNE'}
+          name: column_panel_6_copy_2
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'EFHQIS,NBHYZN'}
+        name: column_panel_1_copy_2
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'KFIEXZ,MPDIJF'}
+      name: column_panel_7_copy_2
+      properties: {col_widths: '{"ZKMVRK":20,"NBHYZN":40}'}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'SYGPLS,TXDCQO'}
+          name: label_4_copy_3
+          properties: {align: center, text: Location}
+          type: Label
+        layout_properties: {grid_position: 'EFHQIS,ZKMVRK'}
+        name: column_panel_9_copy_2_copy
+        properties: {}
+        type: ColumnPanel
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+            name: location_1
+            properties: {group_name: location_rank_group, text: '1', value: '1'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,JXFTVU'}
+          name: column_panel_2_copy_2_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - event_bindings: {clicked: size_2_copy_2_copy_clicked}
+            layout_properties: {grid_position: 'COWZQK,SEWRQO'}
+            name: location_2
+            properties: {group_name: location_rank_group, text: '2', value: '2'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,CXBOPC'}
+          name: column_panel_3_copy_2_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+            name: location_3
+            properties: {group_name: location_rank_group, text: '3', value: '3'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,XOOAQD'}
+          name: panel
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
+            name: location_4
+            properties: {group_name: location_rank_group, text: '4', value: '4'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
+          name: column_panel_5_copy_2_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
+            name: location_5
+            properties: {group_name: location_rank_group, text: '5', value: '5'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,AULSNE'}
+          name: panel1
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'EFHQIS,NBHYZN'}
+        name: column_panel_1_copy_2_copy
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'UCAWAU,MBLNOS'}
+      name: column_panel_7_copy_2_copy
+      properties: {col_widths: '{"ZKMVRK":20,"NBHYZN":40}'}
+      type: ColumnPanel
+    - components:
+      - components:
+        - layout_properties: {grid_position: 'FACUYJ,QWJAXT'}
+          name: label_4_copy_4
+          properties: {align: center, text: Gender}
+          type: Label
+        layout_properties: {grid_position: 'EFHQIS,ZKMVRK'}
+        name: column_panel_9_copy_2_copy_copy
+        properties: {}
+        type: ColumnPanel
+      - components:
+        - components:
+          - layout_properties: {grid_position: 'YIIIPM,OBMKJV'}
+            name: gender_1
+            properties: {group_name: gender_rank_group, text: '1', value: '1'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,JXFTVU'}
+          name: column_panel_2_copy_2_copy_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'COWZQK,SEWRQO'}
+            name: gender_2
+            properties: {group_name: gender_rank_group, text: '2', value: '2'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,CXBOPC'}
+          name: column_panel_3_copy_2_copy_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'HTYKZZ,PVNKUO'}
+            name: gender_3
+            properties: {group_name: gender_rank_group, text: '3', value: '3'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,XOOAQD'}
+          name: column_panel_4_copy_2_copy_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'EKGAHR,XXBNIA'}
+            name: gender_4
+            properties: {group_name: gender_rank_group, text: '4', value: '4'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,KEBMGQ'}
+          name: column_panel_5_copy_2_copy_copy
+          properties: {}
+          type: ColumnPanel
+        - components:
+          - layout_properties: {grid_position: 'UYCRHH,ALMQFQ'}
+            name: gender_5
+            properties: {group_name: gender_rank_group, text: '5', value: '5'}
+            type: RadioButton
+          layout_properties: {grid_position: 'HNECLY,AULSNE'}
+          name: column_panel_6_copy_2_copy_copy
+          properties: {}
+          type: ColumnPanel
+        layout_properties: {grid_position: 'EFHQIS,NBHYZN'}
+        name: column_panel_1_copy_2_copy_copy
+        properties: {}
+        type: ColumnPanel
+      layout_properties: {grid_position: 'FGWVOQ,HIFNRK'}
+      name: column_panel_7_copy_2_copy_copy
+      properties: {col_widths: '{"ZKMVRK":20,"NBHYZN":40}'}
+      type: ColumnPanel
+    - event_bindings: {click: button_1_click}
+      layout_properties: {grid_position: 'SZIBKX,AGSVFW'}
+      name: button_1
+      properties:
+        spacing:
+          padding: [null, '50', null, '50']
+        text: |
+          Sign up
+      type: Button
     data_bindings: []
     layout_properties: {grid_position: 'NCGWNK,XVPDTK'}
     name: pink_box
     properties:
       background: '#f0adca'
-      col_widths: '{"CWXLHG":15}'
+      col_widths: '{}'
       spacing:
         margin: [null, '80', null, '80']
         padding: [null, null, null, null]
