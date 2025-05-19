@@ -1,6 +1,17 @@
 from ._anvil_designer import SignUp3Template
 import anvil.server
-from anvil import alert, open_form
+from anvil import alert, open_form, RadioButton
+
+# ✅ Recursive helper function
+def get_group_value(component, group_name):
+  if isinstance(component, RadioButton) and component.group_name == group_name and component.selected:
+    return component.value
+  elif hasattr(component, 'get_components'):
+    for sub in component.get_components():
+      result = get_group_value(sub, group_name)
+      if result is not None:
+        return result
+  return None
 
 class SignUp3(SignUp3Template):
   def __init__(self, email=None, raw_password=None, username=None,
@@ -17,24 +28,21 @@ class SignUp3(SignUp3Template):
     self.pet_age_preference = pet_age_preference
 
   def signup_button_click(self, **event_args):
-    # Read rankings from radio buttons
     try:
-      rank_size = int(self.size_rank_group.selected_value)
-      rank_age = int(self.age_rank_group.selected_value)
-      rank_type = int(self.type_rank_group.selected_value)
-      rank_location = int(self.location_rank_group.selected_value)
-      rank_gender = int(self.gender_rank_group.selected_value)
+      rank_size = int(get_group_value(self, "size_rank_group"))
+      rank_age = int(get_group_value(self, "age_rank_group"))
+      rank_type = int(get_group_value(self, "type_rank_group"))
+      rank_location = int(get_group_value(self, "location_rank_group"))
+      rank_gender = int(get_group_value(self, "gender_rank_group"))
     except (TypeError, ValueError):
       alert("Please select a ranking for all categories before continuing.")
-      return  # <-- This return must be indented to stay inside the function
-
-    # Check for unique rankings
-    rankings = [rank_size, rank_age, rank_type, rank_location, rank_gender]
-    if len(set(rankings)) != len(rankings):
-      alert("Each ranking must be unique. Please assign a different number (1-5) to each preference.")
       return
 
-    # Proceed if all rankings are unique
+    rankings = [rank_size, rank_age, rank_type, rank_location, rank_gender]
+    if len(set(rankings)) != len(rankings):
+      alert("Each ranking must be unique. Please assign a different number (1–5) to each preference.")
+      return
+
     anvil.server.call(
       'create_user',
       self.email,
@@ -57,5 +65,4 @@ class SignUp3(SignUp3Template):
     open_form("Home")
 
   def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
     pass

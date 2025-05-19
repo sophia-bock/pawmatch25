@@ -45,7 +45,7 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - event_bindings: {change: location_box_change}
+      - event_bindings: {}
         layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
         name: location_box
         properties:
@@ -98,9 +98,9 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - event_bindings: {click: button_1_click}
+      - event_bindings: {click: next_button_click}
         layout_properties: {col_xs: 0, row: AGFNHY, width_xs: 12}
-        name: button_1
+        name: next_button
         properties:
           spacing:
             padding: [null, '50', null, '50']
