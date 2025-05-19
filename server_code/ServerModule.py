@@ -8,7 +8,8 @@ import hashlib
 @anvil.server.callable
 def get_top_pet_matches(user, limit=6):
   pets = app_tables.pets.search()
-  scores = []
+  print(f"Found {len(pets)} pets in database.")
+  
 
   # User preferences
   preferences = {
@@ -28,6 +29,7 @@ def get_top_pet_matches(user, limit=6):
     "age": user['rank_age']
   }
 
+  scores = []
   for pet in pets:
     score = 0
     if pet['location'] == preferences['location']:
