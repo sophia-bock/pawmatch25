@@ -15,14 +15,14 @@ def get_group_value(component, group_name):
 
 class SignUp3(SignUp3Template):
   def __init__(self, email=None, raw_password=None, username=None,
-               pet_location_preference=None, pet_breed_preference=None,
+               pet_location_preference=None, pet_type_preference=None,
                pet_gender_preference=None, pet_size_preference=None,
                pet_age_preference=None):
     self.email = email
     self.raw_password = raw_password
     self.username = username
     self.pet_location_preference = pet_location_preference
-    self.pet_breed_preference = pet_breed_preference
+    self.pet_type_preference = pet_type_preference
     self.pet_gender_preference = pet_gender_preference
     self.pet_size_preference = pet_size_preference
     self.pet_age_preference = pet_age_preference
@@ -49,7 +49,7 @@ class SignUp3(SignUp3Template):
       self.raw_password,
       self.username,
       self.pet_location_preference,
-      self.pet_breed_preference,
+      self.pet_type_preference,
       self.pet_gender_preference,
       self.pet_size_preference,
       self.pet_age_preference,
@@ -62,7 +62,7 @@ class SignUp3(SignUp3Template):
       }
     )
     alert("Account created!")
-    open_form("Home")
+    open_form("BestMatches")
 
   def button_1_click(self, **event_args):
     pass

@@ -4,22 +4,22 @@ db_schema:
     client: none
     columns:
     - admin_ui: {order: 0, width: 200}
-      name: Name
+      name: name
       type: string
     - admin_ui: {order: 1, width: 200}
-      name: Age
+      name: age
       type: number
     - admin_ui: {order: 2, width: 200}
-      name: Size
+      name: size
       type: string
     - admin_ui: {order: 1.5, width: 200}
-      name: Type
+      name: type
       type: string
     - admin_ui: {order: 1.75, width: 200}
-      name: Gender
+      name: gender
       type: string
     - admin_ui: {order: 5, width: 200}
-      name: Location
+      name: location
       type: string
     - admin_ui: {order: 6, width: 200}
       name: Image
@@ -45,7 +45,7 @@ db_schema:
       name: pet_location_preference
       type: string
     - admin_ui: {order: 4, width: 200}
-      name: pet_breed_preference
+      name: pet_type_preference
       type: string
     - admin_ui: {order: 5, width: 200}
       name: pet_gender_preference
@@ -90,5 +90,5 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/tables.yml
-startup: {module: Home, type: form}
+startup: {module: Login, type: form}
 startup_form: null

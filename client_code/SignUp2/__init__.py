@@ -12,14 +12,14 @@ class SignUp2(SignUp2Template):
     self.username = username
 
   def next_button_click(self, **event_args):
-    pet_breed_preference = self.pet_breed_box.selected_value
+    pet_type_preference = self.pet_type_box.selected_value
     pet_location_preference = self.location_box.selected_value
     pet_gender_preference = self.gender_box.selected_value
     pet_size_preference = self.size_box.selected_value
     pet_age_preference = self.age_box.selected_value
 
     # Check if any of the preferences are not selected
-    if not all([pet_breed_preference, pet_location_preference, pet_gender_preference,
+    if not all([pet_type_preference, pet_location_preference, pet_gender_preference,
                 pet_size_preference, pet_age_preference]):
       alert("Please select all pet preferences before continuing.")
       return  # ✅ Make sure this is indented under the `if`
@@ -30,7 +30,7 @@ class SignUp2(SignUp2Template):
               raw_password=self.raw_password,
               username=self.username,
               pet_location_preference=pet_location_preference,
-              pet_breed_preference=pet_breed_preference,
+              pet_type_preference=pet_type_preference,
               pet_gender_preference=pet_gender_preference,
               pet_size_preference=pet_size_preference,
               pet_age_preference=pet_age_preference)

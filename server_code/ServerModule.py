@@ -5,6 +5,47 @@ import anvil.server
 import secrets
 import hashlib
 
+@anvil.server.callable
+def get_top_pet_matches(user, limit=6):
+  pets = app_tables.pets.search()
+  scores = []
+
+  # User preferences
+  preferences = {
+    "location": user['pet_location_preference'],
+    "type": user['pet_type_preference'],
+    "gender": user['pet_gender_preference'],
+    "size": user['pet_size_preference'],
+    "age": user['pet_age_preference']
+  }
+
+  # 🔁 Rebuild weights dictionary manually from individual fields
+  weights = {
+    "location": user['rank_location'],
+    "type": user['rank_type'],
+    "gender": user['rank_gender'],
+    "size": user['rank_size'],
+    "age": user['rank_age']
+  }
+
+  for pet in pets:
+    score = 0
+    if pet['location'] == preferences['location']:
+      score += weights.get('location', 0)
+    if pet['type'] == preferences['type']:
+      score += weights.get('type', 0)
+    if pet['gender'] == preferences['gender']:
+      score += weights.get('gender', 0)
+    if pet['size'] == preferences['size']:
+      score += weights.get('size', 0)
+    if pet['age'] == preferences['age']:
+      score += weights.get('age', 0)
+
+    scores.append((score, pet))
+
+  # Sort by score descending and return top matches
+  top = sorted(scores, reverse=True, key=lambda x: x[0])[:limit]
+  return [x[1] for x in top]
 
 
 
@@ -19,7 +60,7 @@ def hash_password(password):
 
 @anvil.server.callable
 def create_user(email, password, username,
-                pet_location_preference, pet_breed_preference,
+                pet_location_preference, pet_type_preference,
                 pet_gender_preference, pet_size_preference, pet_age_preference,
                 rankings):
 
@@ -28,12 +69,12 @@ def create_user(email, password, username,
 
   hashed = hash_password(password)
 
-  app_tables.users.add_row(
+  user = app_tables.users.add_row(  # ← save this to a variable
     email=email,
     password=hashed,
     username=username,
     pet_location_preference=pet_location_preference,
-    pet_breed_preference=pet_breed_preference,
+    pet_type_preference=pet_type_preference,
     pet_gender_preference=pet_gender_preference,
     pet_size_preference=pet_size_preference,
     pet_age_preference=pet_age_preference,
@@ -44,15 +85,29 @@ def create_user(email, password, username,
     rank_gender=rankings['gender']
   )
 
+  anvil.server.session['user_id'] = user.get_id()  # Store user ID in session
+
 
 @anvil.server.callable
 def login_user(email, password):
   user = app_tables.users.get(email=email)
-  if user and user['password'] == hash_password(password):
-    return {'success': True}
-  else:
-    return {'success': False}
+  if user:
+    stored = user['password']
+    salt, stored_hash = stored.split('$')
+    check_hash = hashlib.sha256((salt + password).encode()).hexdigest()
+    if stored_hash == check_hash:
+      anvil.server.session['user_id'] = user.get_id()  # Store user ID
+      return {'success': True}
+  return {'success': False}
+
 
 @anvil.server.callable
 def check_email_exists(email):
   return app_tables.users.get(email=email) is not None
+
+@anvil.server.callable
+def get_logged_in_user():
+  user_id = anvil.server.session.get('user_id')
+  if user_id:
+    return app_tables.users.get_by_id(user_id)
+  return None
