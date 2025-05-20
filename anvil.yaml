@@ -73,7 +73,7 @@ db_schema:
       type: number
     server: full
     title: users
-metadata: {description: Assessment 1, title: PawMatch}
+metadata: {description: Assessment 1, logo_img: 'asset:Screenshot 2025-05-20 at 9.30.40 pm.png', title: PawMatch}
 name: PawMatch
 native_deps:
   head_html: |
