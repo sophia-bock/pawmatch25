@@ -6,7 +6,7 @@ import secrets
 import hashlib
 
 @anvil.server.callable
-def get_top_pet_matches(user, limit=6):  # ← accepts a row, not a dict
+def get_top_pet_matches(user, limit=6):
   pets = app_tables.pets.search()
   scores = []
 
@@ -53,13 +53,14 @@ def get_top_pet_matches(user, limit=6):  # ← accepts a row, not a dict
       'type': pet['type'],
       'gender': pet['gender'],
       'image': pet['image'],
-      'Special_Attribute': pet.get('Special_Attribute')
+      'Special_Attribute': pet['Special_Attribute'] if 'Special_Attribute' in pet else None
     }
 
     scores.append({'pet': pet_dict, 'score': score})
 
   sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
   return sorted_scores[:limit]
+
 
 
 
