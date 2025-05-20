@@ -1,7 +1,6 @@
 from ._anvil_designer import BestMatchesTemplate
 from anvil import *
 import anvil.server
-from ..PetCard import PetCard
 
 class BestMatches(BestMatchesTemplate):
   def __init__(self, matches=None, **properties):
@@ -15,10 +14,23 @@ class BestMatches(BestMatchesTemplate):
         return
       matches = anvil.server.call('get_top_pet_matches', user)
 
-    # ✅ Pass score to PetCard
+    # ✅ Prepare list of dicts matching your template's fields
+    pets_with_scores = []
     for match in matches:
       pet = match['pet']
       score = match['score']
+      self.matches_repeating_panel.items = matches
+      pets_with_scores.append({
+        'pet_name': pet['name'],
+        'pet_age': f"{pet['age']} years old",
+        'pet_location': pet['location'],
+        'pet_size': pet['size'],
+        'pet_type': pet['type'],
+        'pet_gender': pet['gender'],
+        'special_label': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', 'No special attribute'),
+        'match_label': f"Match: {score}%",
+        'pet_image': pet['image']
+      })
 
-      card = PetCard(pet, score=score)
-      self.matches_panel.add_component(card)
+    # ✅ Bind the data to the repeating panel
+    self.matches_repeating_panel.items = pets_with_scores

@@ -36,7 +36,7 @@ class Login(LoginTemplate):
 
     if result['success']:
       alert("Login successful!")
-      open_form('Home')
+      open_form('BestMatches')
     else:
       alert("Invalid email or password.")
 
