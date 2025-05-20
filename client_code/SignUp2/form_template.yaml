@@ -35,7 +35,7 @@ components:
         name: size_box
         properties:
           include_placeholder: true
-          items: [small, medium, large]
+          items: [Small, Medium, Large]
           placeholder: Pet Size
         type: DropDown
       layout_properties: {grid_position: 'FMTZSB,GGGCGU'}
@@ -45,7 +45,7 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - event_bindings: {change: location_box_change}
+      - event_bindings: {}
         layout_properties: {col_xs: 3, row: BPXCQK, width_xs: 6}
         name: location_box
         properties:
@@ -59,7 +59,7 @@ components:
       type: GridPanel
     - components:
       - layout_properties: {col_xs: 3, row: GHKWUU, width_xs: 6}
-        name: pet_breed_box
+        name: pet_type_box
         properties:
           include_placeholder: true
           items: [Cat, Dog, Bird]
@@ -88,7 +88,7 @@ components:
         name: age_box
         properties:
           include_placeholder: true
-          items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+          items: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10 + ']
           placeholder: Pet Age
         type: DropDown
       layout_properties: {grid_position: 'POKXCJ,SLWJPT'}
@@ -98,9 +98,9 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - event_bindings: {click: button_1_click}
+      - event_bindings: {click: next_button_click}
         layout_properties: {col_xs: 0, row: AGFNHY, width_xs: 12}
-        name: button_1
+        name: next_button
         properties:
           spacing:
             padding: [null, '50', null, '50']
@@ -116,6 +116,7 @@ components:
     name: pink_box
     properties:
       background: '#f0adca'
+      role: Round
       spacing:
         margin: [null, '120', null, '120']
         padding: [null, null, null, null]
