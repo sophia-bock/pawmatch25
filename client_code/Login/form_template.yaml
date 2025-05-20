@@ -113,6 +113,8 @@ components:
     name: pink_box
     properties:
       background: '#f0adca'
+      border: ''
+      role: Round
       spacing:
         margin: [null, '120', null, '120']
         padding: [null, null, null, null]

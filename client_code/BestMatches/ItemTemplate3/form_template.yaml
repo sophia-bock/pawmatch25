@@ -1,43 +1,53 @@
 components:
 - components:
-  - components: []
-    layout_properties: {grid_position: 'QJVOBQ,IAVYAV'}
-    name: petid_panel
-    properties: {}
-    type: ColumnPanel
-  - layout_properties: {grid_position: 'PLBCWV,WPERFU'}
-    name: pet_name
-    properties: {}
-    type: Label
   - components:
+    - layout_properties: {grid_position: 'PENZNE,KPHBLB'}
+      name: pet_name
+      properties: {}
+      type: Label
     - components:
       - layout_properties: {grid_position: 'BEKHOL,WUWMDK'}
         name: pet_type
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'DOXWDR,LGINKZ'}
         name: pet_age
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'UYBQEI,GQDZJH'}
         name: pet_location
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'CQWEGE,LVQTMT'}
         name: pet_gender
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'TSCZLV,GPJASO'}
         name: pet_size
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'JRTBQE,NZWJBA'}
         name: special_label
-        properties: {}
+        properties:
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       - layout_properties: {grid_position: 'KPDZMM,RMKGCB'}
         name: match_label
-        properties: {align: left}
+        properties:
+          align: left
+          spacing:
+            margin: [null, null, null, '20']
         type: Label
       layout_properties: {grid_position: 'VFUDVX,MJNPYC'}
       name: column_panel_2
@@ -51,11 +61,9 @@ components:
     name: column_panel_1
     properties: {}
     type: ColumnPanel
-  layout_properties: {slot: default}
+  layout_properties: {grid_position: 'MJPEKE,MOZWYT'}
   name: content_panel
-  properties: {}
+  properties: {background: '#f0adca', role: Round}
   type: ColumnPanel
-container:
-  properties: {html: '@theme:standard-page.html'}
-  type: HtmlTemplate
+container: {type: ColumnPanel}
 is_package: true
