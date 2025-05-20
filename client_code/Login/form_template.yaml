@@ -44,7 +44,8 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
-      - layout_properties: {col_xs: 1, row: FQJUZE, width_xs: 2}
+      - event_bindings: {click: toggle_visibility_button_click}
+        layout_properties: {col_xs: 1, row: FQJUZE, width_xs: 2}
         name: toggle_visibility_button
         properties:
           spacing:

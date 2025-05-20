@@ -34,6 +34,11 @@ class SignUp1(SignUp1Template):
     username = self.username_box.text
     confirm_password = self.confirm_password_box.text
 
+    # ✅ Check if any field is empty
+    if not email or not password or not username or not confirm_password:
+      alert("Please fill in all fields before continuing.")
+      return
+
     # Check if passwords match
     if password != confirm_password:
       alert("Passwords do not match.")
@@ -52,3 +57,6 @@ class SignUp1(SignUp1Template):
 
     # Proceed to next step
     open_form('SignUp2', email=email, raw_password=password, username=username)
+
+  def back_button_click(self, **event_args):
+    open_form('Login')

@@ -17,8 +17,8 @@ class ItemTemplate3(ItemTemplate3Template):
         self.pet_size.text = pet['size']
         self.pet_type.text = pet['type']
         self.pet_gender.text = pet['gender']
-        self.special_label.text = pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', '')
-        self.pet_image.source = pet['image']
+        self.special_label.text = pet['Special_Attribute']
+        self.pet_image.source = pet['Image']
 
       if score is not None:
         self.match_label.text = f"Match: {score}%"

@@ -14,12 +14,11 @@ class BestMatches(BestMatchesTemplate):
         return
       matches = anvil.server.call('get_top_pet_matches', user)
 
-    # ✅ Prepare list of dicts matching your template's fields
+    # ✅ Prepare cleaned data for the RepeatingPanel
     pets_with_scores = []
     for match in matches:
       pet = match['pet']
       score = match['score']
-      self.matches_repeating_panel.items = matches
       pets_with_scores.append({
         'pet_name': pet['name'],
         'pet_age': f"{pet['age']} years old",
@@ -32,5 +31,5 @@ class BestMatches(BestMatchesTemplate):
         'pet_image': pet['image']
       })
 
-    # ✅ Bind the data to the repeating panel
+    # ✅ Set items ONCE, after preparing them
     self.matches_repeating_panel.items = pets_with_scores
