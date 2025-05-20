@@ -1,8 +1,7 @@
 components:
 - components:
   - components:
-    - data_bindings: []
-      layout_properties: {grid_position: 'BHEBTX,MYWCAY'}
+    - layout_properties: {grid_position: 'BHEBTX,MYWCAY'}
       name: label_1
       properties: {align: center, font: Moo Lah Lah, font_size: 120, foreground: '#f0adca', text: PawMatch}
       type: Label
@@ -37,7 +36,12 @@ components:
       name: column_panel_6_copy
       properties: {}
       type: ColumnPanel
-    - layout_properties: {grid_position: 'AJVXKA,MBOYKH'}
+    - components:
+      - layout_properties: {grid_position: 'EKNKYI,NCFURD'}
+        name: repeating_panel_1
+        properties: {item_template: BestMatches.ItemTemplate3, role: Scroll}
+        type: RepeatingPanel
+      layout_properties: {grid_position: 'AJVXKA,MBOYKH'}
       name: column_panel_8
       properties: {}
       type: ColumnPanel

@@ -22,10 +22,11 @@ class SignUp2(SignUp2Template):
     if not all([pet_type_preference, pet_location_preference, pet_gender_preference,
                 pet_size_preference, pet_age_preference]):
       alert("Please select all pet preferences before continuing.")
-      return  # ✅ Make sure this is indented under the `if`
+      return  
 
     # If all preferences are selected, proceed to SignUp3
     open_form('SignUp3', 
+              user=self.user,
               email=self.email,
               raw_password=self.raw_password,
               username=self.username,

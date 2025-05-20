@@ -83,7 +83,7 @@ class SignUp3(SignUp3Template):
       'rank_gender': rank_gender
     })
     alert(top_matches)
-    top_matches = anvil.server.call('get_top_pet_matches', temp_user)
+    top_matches = anvil.server.call('get_top_pet_matches', user)
     open_form("BestMatches", matches=top_matches)
   
   def button_1_click(self, **event_args):
