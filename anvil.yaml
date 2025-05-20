@@ -22,7 +22,7 @@ db_schema:
       name: location
       type: string
     - admin_ui: {order: 6, width: 200}
-      name: Image
+      name: image
       type: media
     - admin_ui: {order: 7, width: 200}
       name: Special_Attribute

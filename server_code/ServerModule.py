@@ -39,11 +39,24 @@ def get_top_pet_matches(user_dict, limit=6):
     if pet['age'] == preferences['age']:
       score += weights.get('age', 0)
 
-    scores.append({'pet': pet, 'score': score})
+    # Convert pet LiveObject to plain dict
+    pet_dict = {
+      'name': pet['name'],
+      'age': pet['age'],
+      'location': pet['location'],
+      'size': pet['size'],
+      'type': pet['type'],
+      'gender': pet['gender'],
+      'image': pet['image'],
+      'feather_type(bird)_or_fur_type(dog)_or_temperament(cat)': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', '')
+    }
+
+    scores.append({'pet': pet_dict, 'score': score})
 
   sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
   top = sorted_scores[:limit]
   return top
+
 
 
 
