@@ -428,6 +428,7 @@ components:
     properties:
       background: '#f0adca'
       col_widths: '{}'
+      role: Round
       spacing:
         margin: [null, '80', null, '80']
         padding: [null, null, null, null]
