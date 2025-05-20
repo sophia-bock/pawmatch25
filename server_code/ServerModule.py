@@ -6,62 +6,61 @@ import secrets
 import hashlib
 
 @anvil.server.callable
-def get_top_pet_matches(user_dict, limit=6):
+def get_top_pet_matches(user, limit=6):  # ← accepts a row, not a dict
   pets = app_tables.pets.search()
   scores = []
 
   preferences = {
-    "location": user_dict['pet_location_preference'],
-    "type": user_dict['pet_type_preference'],
-    "gender": user_dict['pet_gender_preference'],
-    "size": user_dict['pet_size_preference'],
-    "age": user_dict['pet_age_preference']
+    "location": user['pet_location_preference'],
+    "type": user['pet_type_preference'],
+    "gender": user['pet_gender_preference'],
+    "size": user['pet_size_preference'],
+    "age": user['pet_age_preference']
   }
 
   weights = {
-    "location": user_dict['rank_location'],
-    "type": user_dict['rank_type'],
-    "gender": user_dict['rank_gender'],
-    "size": user_dict['rank_size'],
-    "age": user_dict['rank_age']
+    "location": user['rank_location'],
+    "type": user['rank_type'],
+    "gender": user['rank_gender'],
+    "size": user['rank_size'],
+    "age": user['rank_age']
   }
 
   for pet in pets:
-  # Skip pets missing a name or image
     try:
       if not pet['name'] or not pet['image']:
         continue
     except KeyError:
       continue
 
-  score = 0
-  if pet['location'] == preferences['location']:
-    score += weights.get('location', 0)
-  if pet['type'] == preferences['type']:
-    score += weights.get('type', 0)
-  if pet['gender'] == preferences['gender']:
-    score += weights.get('gender', 0)
-  if pet['size'] == preferences['size']:
-    score += weights.get('size', 0)
-  if pet['age'] == preferences['age']:
-    score += weights.get('age', 0)
+    score = 0
+    if pet['location'] == preferences['location']:
+      score += weights.get('location', 0)
+    if pet['type'] == preferences['type']:
+      score += weights.get('type', 0)
+    if pet['gender'] == preferences['gender']:
+      score += weights.get('gender', 0)
+    if pet['size'] == preferences['size']:
+      score += weights.get('size', 0)
+    if pet['age'] == preferences['age']:
+      score += weights.get('age', 0)
 
-  pet_dict = {
-    'name': pet['name'],
-    'age': pet['age'],
-    'location': pet['location'],
-    'size': pet['size'],
-    'type': pet['type'],
-    'gender': pet['gender'],
-    'image': pet['image'],
-    'Special_Attribute': pet['Special_Attribute']
-  }
+    pet_dict = {
+      'name': pet['name'],
+      'age': pet['age'],
+      'location': pet['location'],
+      'size': pet['size'],
+      'type': pet['type'],
+      'gender': pet['gender'],
+      'image': pet['image'],
+      'Special_Attribute': pet.get('Special_Attribute')
+    }
 
-  scores.append({'pet': pet_dict, 'score': score})
+    scores.append({'pet': pet_dict, 'score': score})
 
   sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
-  top = sorted_scores[:limit]
-  return top
+  return sorted_scores[:limit]
+
 
 
 
@@ -104,7 +103,6 @@ def create_user(email, password, username,
 
   anvil.server.session['user_id'] = user.get_id()  # Store user ID in session
 
-
 @anvil.server.callable
 def login_user(email, password):
   user = app_tables.users.get(email=email)
@@ -113,9 +111,10 @@ def login_user(email, password):
     salt, stored_hash = stored.split('$')
     check_hash = hashlib.sha256((salt + password).encode()).hexdigest()
     if stored_hash == check_hash:
-      anvil.server.session['user_id'] = user.get_id()  # Store user ID
-      return {'success': True}
+      anvil.server.session['user_id'] = user.get_id()
+      return {'success': True, 'user': user}
   return {'success': False}
+
 
 
 @anvil.server.callable
@@ -124,7 +123,9 @@ def check_email_exists(email):
 
 @anvil.server.callable
 def get_logged_in_user():
-  user_id = anvil.server.session.get('user_id')
-  if user_id:
-    return app_tables.users.get_by_id(user_id)
+  session = getattr(anvil.server, "session", None)
+  if session and isinstance(session, dict):
+    user_id = session.get('user_id')
+    if user_id:
+      return app_tables.users.get_by_id(user_id)
   return None

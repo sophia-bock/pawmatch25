@@ -36,9 +36,11 @@ class Login(LoginTemplate):
 
     if result['success']:
       alert("Login successful!")
-      open_form('BestMatches')
+      user = result['user']  # ← we now pass the user directly
+      open_form('BestMatches', user=user)
     else:
       alert("Invalid email or password")
+
 
 
 
