@@ -26,7 +26,6 @@ class SignUp2(SignUp2Template):
 
     # If all preferences are selected, proceed to SignUp3
     open_form('SignUp3', 
-              user=self.user,
               email=self.email,
               raw_password=self.raw_password,
               username=self.username,
