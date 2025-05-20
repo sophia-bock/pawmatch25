@@ -27,31 +27,35 @@ def get_top_pet_matches(user_dict, limit=6):
   }
 
   for pet in pets:
-    score = 0
-    if pet['location'] == preferences['location']:
-      score += weights.get('location', 0)
-    if pet['type'] == preferences['type']:
-      score += weights.get('type', 0)
-    if pet['gender'] == preferences['gender']:
-      score += weights.get('gender', 0)
-    if pet['size'] == preferences['size']:
-      score += weights.get('size', 0)
-    if pet['age'] == preferences['age']:
-      score += weights.get('age', 0)
+  # Skip pets missing a name or image
+    if not pet.get('name') or not pet.get('image'):
+      continue
 
-    # Convert pet LiveObject to plain dict
-    pet_dict = {
-      'name': pet['name'],
-      'age': pet['age'],
-      'location': pet['location'],
-      'size': pet['size'],
-      'type': pet['type'],
-      'gender': pet['gender'],
-      'image': pet['image'],
-      'feather_type(bird)_or_fur_type(dog)_or_temperament(cat)': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', '')
-    }
+  score = 0
+  if pet['location'] == preferences['location']:
+    score += weights.get('location', 0)
+  if pet['type'] == preferences['type']:
+    score += weights.get('type', 0)
+  if pet['gender'] == preferences['gender']:
+    score += weights.get('gender', 0)
+  if pet['size'] == preferences['size']:
+    score += weights.get('size', 0)
+  if pet['age'] == preferences['age']:
+    score += weights.get('age', 0)
 
-    scores.append({'pet': pet_dict, 'score': score})
+  # Safely create the pet dictionary
+  pet_dict = {
+    'name': pet.get('name', 'Unnamed'),
+    'age': pet.get('age', 'Unknown'),
+    'location': pet.get('location', 'Unknown'),
+    'size': pet.get('size', 'Unknown'),
+    'type': pet.get('type', 'Unknown'),
+    'gender': pet.get('gender', 'Unknown'),
+    'image': pet.get('image', None),
+    'feather_type(bird)_or_fur_type(dog)_or_temperament(cat)': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', '')
+  }
+
+  scores.append({'pet': pet_dict, 'score': score})
 
   sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
   top = sorted_scores[:limit]
