@@ -28,7 +28,10 @@ def get_top_pet_matches(user_dict, limit=6):
 
   for pet in pets:
   # Skip pets missing a name or image
-    if not pet.get('name') or not pet.get('image'):
+    try:
+      if not pet['name'] or not pet['image']:
+        continue
+    except KeyError:
       continue
 
   score = 0
@@ -43,16 +46,15 @@ def get_top_pet_matches(user_dict, limit=6):
   if pet['age'] == preferences['age']:
     score += weights.get('age', 0)
 
-  # Safely create the pet dictionary
   pet_dict = {
-    'name': pet.get('name', 'Unnamed'),
-    'age': pet.get('age', 'Unknown'),
-    'location': pet.get('location', 'Unknown'),
-    'size': pet.get('size', 'Unknown'),
-    'type': pet.get('type', 'Unknown'),
-    'gender': pet.get('gender', 'Unknown'),
-    'image': pet.get('image', None),
-    'feather_type(bird)_or_fur_type(dog)_or_temperament(cat)': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', '')
+    'name': pet['name'],
+    'age': pet['age'],
+    'location': pet['location'],
+    'size': pet['size'],
+    'type': pet['type'],
+    'gender': pet['gender'],
+    'image': pet['image'],
+    'Special_Attribute': pet['Special_Attribute']
   }
 
   scores.append({'pet': pet_dict, 'score': score})
