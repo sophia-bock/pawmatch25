@@ -1,0 +1,15 @@
+
+body{
+  background-color: #ffe7f1;
+  font-family: Rubik;
+}
+
+
+.anvil-role-scroll {
+  height: 400px;
+  overflow-y: auto;
+}
+
+.anvil-role-Round {
+  border-radius: 10px;
+}
