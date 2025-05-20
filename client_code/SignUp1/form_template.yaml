@@ -59,10 +59,20 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
+      - event_bindings: {click: toggle_visibility_button_1_click}
+        layout_properties: {col_xs: 2, row: UJPPNQ, width_xs: 1}
+        name: toggle_visibility_button_1
+        properties:
+          spacing:
+            margin: ['0', null, '0', null]
+            padding: ['', '12', null, null]
+          text: ''
+        type: Button
       - layout_properties: {col_xs: 3, row: UJPPNQ, width_xs: 6}
         name: password_box
         properties:
           align: left
+          hide_text: true
           margin: ['0', null, '0', null]
           placeholder: Password
         type: TextBox
@@ -81,10 +91,20 @@ components:
       properties: {}
       type: GridPanel
     - components:
+      - event_bindings: {click: toggle_visibility_button_2_click}
+        layout_properties: {col_xs: 2, row: DBXAOG, width_xs: 1}
+        name: toggle_visibility_button_2
+        properties:
+          spacing:
+            margin: ['0', null, '0', null]
+            padding: ['', '12', null, null]
+          text: ''
+        type: Button
       - layout_properties: {col_xs: 3, row: DBXAOG, width_xs: 6}
         name: confirm_password_box
         properties:
           align: left
+          hide_text: true
           margin: ['0', null, '0', null]
           placeholder: Confirm Password
         type: TextBox

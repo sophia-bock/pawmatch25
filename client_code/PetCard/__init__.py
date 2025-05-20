@@ -23,10 +23,10 @@ class PetCard(PetCardTemplate):
         'feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', "No special attribute"
       )
 
-      # Optional: Show match %, if available
-      match = self.item.get('match_score')
-      if match is not None:
-        self.match_label.text = f"Match: {match}%"
+      # Show match score if available
+      match_score = self.item.get('match_score')
+      if match_score is not None:
+        self.match_label.text = f"Match Score: {match_score}/15"
+        self.match_label.visible = True
       else:
         self.match_label.visible = False
-    # Any code you write here will run before the form opens.

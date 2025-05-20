@@ -45,10 +45,20 @@ components:
           margin: ['0', null, '0', null]
       type: GridPanel
     - components:
+      - event_bindings: {click: toggle_visibility_button_click}
+        layout_properties: {col_xs: 2, row: FQJUZE, width_xs: 1}
+        name: toggle_visibility_button
+        properties:
+          spacing:
+            margin: ['0', null, '0', null]
+            padding: ['', '12', null, null]
+          text: ''
+        type: Button
       - layout_properties: {col_xs: 3, row: FQJUZE, width_xs: 6}
         name: password_box
         properties:
           align: left
+          hide_text: true
           margin: ['0', null, '0', null]
           placeholder: Password
         type: TextBox

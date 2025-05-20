@@ -8,10 +8,8 @@ import hashlib
 @anvil.server.callable
 def get_top_pet_matches(user, limit=6):
   pets = app_tables.pets.search()
-  print(f"Found {len(pets)} pets in database.")
-  
+  scores = []
 
-  # User preferences
   preferences = {
     "location": user['pet_location_preference'],
     "type": user['pet_type_preference'],
@@ -20,7 +18,6 @@ def get_top_pet_matches(user, limit=6):
     "age": user['pet_age_preference']
   }
 
-  # 🔁 Rebuild weights dictionary manually from individual fields
   weights = {
     "location": user['rank_location'],
     "type": user['rank_type'],
@@ -29,7 +26,6 @@ def get_top_pet_matches(user, limit=6):
     "age": user['rank_age']
   }
 
-  scores = []
   for pet in pets:
     score = 0
     if pet['location'] == preferences['location']:
@@ -43,11 +39,11 @@ def get_top_pet_matches(user, limit=6):
     if pet['age'] == preferences['age']:
       score += weights.get('age', 0)
 
-    scores.append((score, pet))
+    scores.append({'pet': pet, 'score': score})  # ✅ include score
 
-  # Sort by score descending and return top matches
-  top = sorted(scores, reverse=True, key=lambda x: x[0])[:limit]
-  return [x[1] for x in top]
+  # Sort and return top matches
+  top = sorted(scores, reverse=True, key=lambda x: x['score'])[:limit]
+  return top
 
 
 
