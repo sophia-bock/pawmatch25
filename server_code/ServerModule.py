@@ -6,24 +6,24 @@ import secrets
 import hashlib
 
 @anvil.server.callable
-def get_top_pet_matches(user, limit=6):
+def get_top_pet_matches(user_dict, limit=6):
   pets = app_tables.pets.search()
   scores = []
 
   preferences = {
-    "location": user['pet_location_preference'],
-    "type": user['pet_type_preference'],
-    "gender": user['pet_gender_preference'],
-    "size": user['pet_size_preference'],
-    "age": user['pet_age_preference']
+    "location": user_dict['pet_location_preference'],
+    "type": user_dict['pet_type_preference'],
+    "gender": user_dict['pet_gender_preference'],
+    "size": user_dict['pet_size_preference'],
+    "age": user_dict['pet_age_preference']
   }
 
   weights = {
-    "location": user['rank_location'],
-    "type": user['rank_type'],
-    "gender": user['rank_gender'],
-    "size": user['rank_size'],
-    "age": user['rank_age']
+    "location": user_dict['rank_location'],
+    "type": user_dict['rank_type'],
+    "gender": user_dict['rank_gender'],
+    "size": user_dict['rank_size'],
+    "age": user_dict['rank_age']
   }
 
   for pet in pets:
@@ -39,10 +39,10 @@ def get_top_pet_matches(user, limit=6):
     if pet['age'] == preferences['age']:
       score += weights.get('age', 0)
 
-    scores.append({'pet': pet, 'score': score})  # ✅ include score
+    scores.append({'pet': pet, 'score': score})
 
-  # Sort and return top matches
-  top = sorted(scores, reverse=True, key=lambda x: x['score'])[:limit]
+  sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
+  top = sorted_scores[:limit]
   return top
 
 

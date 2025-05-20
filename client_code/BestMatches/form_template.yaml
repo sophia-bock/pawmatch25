@@ -38,7 +38,7 @@ components:
       type: ColumnPanel
     - components:
       - layout_properties: {grid_position: 'EKNKYI,NCFURD'}
-        name: repeating_panel_1
+        name: matches_repeating_panel
         properties: {item_template: BestMatches.ItemTemplate3, role: Scroll}
         type: RepeatingPanel
       layout_properties: {grid_position: 'AJVXKA,MBOYKH'}
