@@ -49,9 +49,7 @@ class Login(LoginTemplate):
     # ✅ Continue only if user was successfully retrieved
     matches = anvil.server.call('get_top_pet_matches', user)
     open_form("BestMatches", user=user, matches=matches)
-
     else:
-    # ✅ Existing handling if login fails
       alert("Invalid email or password.")
 
 
