@@ -103,21 +103,10 @@ def create_user(email, password, username,
     rank_gender=rankings['gender']
   )
 
-  anvil.server.session['user_id'] = user
+  anvil.server.session['user_id'] = str(user.get_id())
 
   # ✅ CHANGED: Return a plain dictionary instead of a Row object
-  return {
-    'pet_location_preference': pet_location_preference,
-    'pet_type_preference': pet_type_preference,
-    'pet_gender_preference': pet_gender_preference,
-    'pet_size_preference': pet_size_preference,
-    'pet_age_preference': pet_age_preference,
-    'rank_size': rankings['size'],
-    'rank_age': rankings['age'],
-    'rank_type': rankings['type'],
-    'rank_location': rankings['location'],
-    'rank_gender': rankings['gender']
-  }
+  return user
 
 
 @anvil.server.callable
@@ -128,7 +117,7 @@ def login_user(email, password):
     salt, stored_hash = stored.split('$')
     check_hash = hashlib.sha256((salt + password).encode()).hexdigest()
     if stored_hash == check_hash:
-      anvil.server.session['user_id'] = user
+      anvil.server.session['user_id'] = str(user.get_id())
       return {'success': True, 'user': user}
   return {'success': False}
 
@@ -141,15 +130,15 @@ def check_email_exists(email):
 @anvil.server.callable
 def get_logged_in_user():
   session = getattr(anvil.server, "session", None)
-  print("Session object:", session)  # 🔍 Debug print
+  print("Session object:", session)
 
   if session and isinstance(session, dict):
     user_id = session.get('user_id')
-    print("Session user_id:", user_id)  # 🔍 Debug print
+    print("User ID from session:", user_id)
 
-    if user_id:
+    if isinstance(user_id, str):
       user = app_tables.users.get_by_id(user_id)
-      print("User row from DB:", user)  # 🔍 Debug print
+      print("User row from DB:", user)
 
       if user:
         return {
@@ -164,6 +153,8 @@ def get_logged_in_user():
           'rank_location': user['rank_location'],
           'rank_gender': user['rank_gender']
         }
+      else:
+        alert("give up now")
 
   print("⚠️ No user found in session.")
   return None

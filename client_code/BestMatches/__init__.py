@@ -8,8 +8,11 @@ class BestMatches(BestMatchesTemplate):
   def __init__(self, user=None, matches=None, **properties):
     self.init_components(**properties)
 
-    alert("User received:", user)
-    alert("Matches received:", matches)
+    print("👤 BestMatches got user:", user)
+    print("🐾 BestMatches got matches:", matches)
+    
+    alert(f"User received: {user}")
+    alert(f"Matches received: {matches}")
 
     if not user or not matches:
       alert("Missing user or match data. Please sign in again.")
