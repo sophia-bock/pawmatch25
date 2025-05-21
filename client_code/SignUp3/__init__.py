@@ -18,6 +18,8 @@ class SignUp3(SignUp3Template):
                pet_location_preference=None, pet_type_preference=None,
                pet_gender_preference=None, pet_size_preference=None,
                pet_age_preference=None):
+    self.init_components()
+    
     self.email = email
     self.raw_password = raw_password
     self.username = username
@@ -43,8 +45,8 @@ class SignUp3(SignUp3Template):
       alert("Each ranking must be unique. Please assign a different number (1–5) to each preference.")
       return
 
-    # Call the create_user server function
-    anvil.server.call(
+    # ✅ Create user and use the returned user object
+    user = anvil.server.call(
       'create_user',
       self.email,
       self.raw_password,
@@ -62,29 +64,14 @@ class SignUp3(SignUp3Template):
         'gender': rank_gender
       }
     )
+    
 
     alert("Account created!")
 
-    # ✅ Get user and their top matches
-    #user = anvil.server.call("get_logged_in_user")
-    #top_matches = anvil.server.call("get_top_pet_matches", user)
+    # ✅ Pass the user object directly to get_top_pet_matches
+    top_matches = anvil.server.call('get_top_pet_matches', user)
 
-    # ✅ Open BestMatches form with matches passed in
-    top_matches = anvil.server.call('get_top_pet_matches',{
-      'pet_location_preference': self.pet_location_preference,
-      'pet_type_preference': self.pet_type_preference,
-      'pet_gender_preference': self.pet_gender_preference,
-      'pet_size_preference': self.pet_size_preference,
-      'pet_age_preference': self.pet_age_preference,
-      'rank_size': rank_size,
-      'rank_age': rank_age,
-      'rank_type': rank_type,
-      'rank_location': rank_location,
-      'rank_gender': rank_gender
-    })
-    alert(top_matches)
-    #top_matches = anvil.server.call('get_top_pet_matches', self.username)
-    open_form("BestMatches", matches=top_matches)
+    open_form("BestMatches", matches=top_matches, user=user)
   
   def button_1_click(self, **event_args):
     pass

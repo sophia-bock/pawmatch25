@@ -15,9 +15,9 @@ components:
     type: ColumnPanel
   - components:
     - components:
-      - event_bindings: {click: pet_list_button_click}
+      - event_bindings: {click: best_matches_button_click}
         layout_properties: {grid_position: 'XJPNLN,XGGUTX'}
-        name: pet_list_button
+        name: best_matches_button
         properties:
           font_size: 18
           spacing:

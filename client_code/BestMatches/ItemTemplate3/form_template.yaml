@@ -55,7 +55,9 @@ components:
       type: ColumnPanel
     - layout_properties: {grid_position: 'VFUDVX,OFSUDS'}
       name: pet_image
-      properties: {height: 300.9496154785156}
+      properties:
+        height: 300.9496154785156
+        margin: [null, '20', null, null]
       type: Image
     layout_properties: {grid_position: 'IHHAOZ,PDOMNB'}
     name: column_panel_1
