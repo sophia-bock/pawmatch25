@@ -35,11 +35,24 @@ class Login(LoginTemplate):
     result = anvil.server.call('login_user', email, password)
 
     if result['success']:
-      alert("Login successful!")
-      user = result['user']  # ← we now pass the user directly
-      open_form('BestMatches', user=user)
+      import time
+    time.sleep(0.2)  # ✅ Allow session time to update before retrieving user
+
+    # ✅ Safely retrieve the logged-in user
+    user = anvil.server.call('get_logged_in_user')
+
+    # ✅ ADD THIS CHECK: handle if user is still None
+    if not user:
+      alert("Login session failed. Please try again.")
+      return
+
+    # ✅ Continue only if user was successfully retrieved
+    matches = anvil.server.call('get_top_pet_matches', user)
+    open_form("BestMatches", user=user, matches=matches)
+
     else:
-      alert("Invalid email or password")
+    # ✅ Existing handling if login fails
+      alert("Invalid email or password.")
 
 
 

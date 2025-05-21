@@ -3,24 +3,24 @@ from anvil import *
 import anvil.server
 import time  # Needed for sleep delay
 
+
 class BestMatches(BestMatchesTemplate):
-  def __init__(self, matches=None, user_data=None, **properties):
+  def __init__(self, user=None, matches=None, **properties):
     self.init_components(**properties)
 
-    # ✅ No need to fetch user from session if we already passed preferences
-    if matches is None or user_data is None:
+    alert("User received:", user)
+    alert("Matches received:", matches)
+
+    if not user or not matches:
       alert("Missing user or match data. Please sign in again.")
       open_form("Login")
       return
 
-    # You can now use self.user_data['preferences']['type'], etc.
-    self.user_data = user_data
-
+    # ✅ Continue if data is valid
     pets_with_scores = []
     for match in matches:
       pet = match['pet']
       score = match['score']
-
       pets_with_scores.append({
         'pet_name': pet['name'],
         'pet_age': f"{pet['age']} years old",
@@ -28,7 +28,7 @@ class BestMatches(BestMatchesTemplate):
         'pet_size': pet['size'],
         'pet_type': pet['type'],
         'pet_gender': pet['gender'],
-        'special_label': pet.get('feather_type(bird)_or_fur_type(dog)_or_temperament(cat)', 'No special attribute'),
+        'special_label': pet.get('Special_Attribute', 'No special attribute'),
         'pet_image': pet['image'],
         'match_label': f"Match: {score}%"
       })

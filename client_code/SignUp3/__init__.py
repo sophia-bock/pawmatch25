@@ -71,7 +71,7 @@ class SignUp3(SignUp3Template):
     # ✅ Pass the user object directly to get_top_pet_matches
     top_matches = anvil.server.call('get_top_pet_matches', user)
 
-    open_form("BestMatches", matches=top_matches, user=user)
+    open_form("BestMatches", user=user, matches=top_matches)
   
   def button_1_click(self, **event_args):
     pass
