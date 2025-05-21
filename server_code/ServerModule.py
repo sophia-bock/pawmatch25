@@ -103,7 +103,7 @@ def create_user(email, password, username,
     rank_gender=rankings['gender']
   )
 
-  anvil.server.session['user_id'] = user.get_id()
+  anvil.server.session['user_id'] = user
 
   # ✅ CHANGED: Return a plain dictionary instead of a Row object
   return {
@@ -128,7 +128,7 @@ def login_user(email, password):
     salt, stored_hash = stored.split('$')
     check_hash = hashlib.sha256((salt + password).encode()).hexdigest()
     if stored_hash == check_hash:
-      anvil.server.session['user_id'] = user.get_id()
+      anvil.server.session['user_id'] = user
       return {'success': True, 'user': user}
   return {'success': False}
 
@@ -141,10 +141,16 @@ def check_email_exists(email):
 @anvil.server.callable
 def get_logged_in_user():
   session = getattr(anvil.server, "session", None)
+  print("Session object:", session)  # 🔍 Debug print
+
   if session and isinstance(session, dict):
     user_id = session.get('user_id')
+    print("Session user_id:", user_id)  # 🔍 Debug print
+
     if user_id:
       user = app_tables.users.get_by_id(user_id)
+      print("User row from DB:", user)  # 🔍 Debug print
+
       if user:
         return {
           'pet_location_preference': user['pet_location_preference'],
@@ -158,4 +164,6 @@ def get_logged_in_user():
           'rank_location': user['rank_location'],
           'rank_gender': user['rank_gender']
         }
+
+  print("⚠️ No user found in session.")
   return None
