@@ -59,6 +59,7 @@ def get_top_pet_matches(user, limit=6):
     scores.append({'pet': pet_dict, 'score': score})
 
   sorted_scores = sorted(scores, key=lambda s: s['score'], reverse=True)
+  limit = int(limit)
   return sorted_scores[:limit]
 
 
@@ -86,7 +87,7 @@ def create_user(email, password, username,
 
   hashed = hash_password(password)
 
-  user = app_tables.users.add_row(  # ← save this to a variable
+  user = app_tables.users.add_row(
     email=email,
     password=hashed,
     username=username,
@@ -102,7 +103,22 @@ def create_user(email, password, username,
     rank_gender=rankings['gender']
   )
 
-  anvil.server.session['user_id'] = user.get_id()  # Store user ID in session
+  anvil.server.session['user_id'] = user.get_id()
+
+  # ✅ CHANGED: Return a plain dictionary instead of a Row object
+  return {
+    'pet_location_preference': pet_location_preference,
+    'pet_type_preference': pet_type_preference,
+    'pet_gender_preference': pet_gender_preference,
+    'pet_size_preference': pet_size_preference,
+    'pet_age_preference': pet_age_preference,
+    'rank_size': rankings['size'],
+    'rank_age': rankings['age'],
+    'rank_type': rankings['type'],
+    'rank_location': rankings['location'],
+    'rank_gender': rankings['gender']
+  }
+
 
 @anvil.server.callable
 def login_user(email, password):
@@ -128,5 +144,18 @@ def get_logged_in_user():
   if session and isinstance(session, dict):
     user_id = session.get('user_id')
     if user_id:
-      return app_tables.users.get_by_id(user_id)
+      user = app_tables.users.get_by_id(user_id)
+      if user:
+        return {
+          'pet_location_preference': user['pet_location_preference'],
+          'pet_type_preference': user['pet_type_preference'],
+          'pet_gender_preference': user['pet_gender_preference'],
+          'pet_size_preference': user['pet_size_preference'],
+          'pet_age_preference': user['pet_age_preference'],
+          'rank_size': user['rank_size'],
+          'rank_age': user['rank_age'],
+          'rank_type': user['rank_type'],
+          'rank_location': user['rank_location'],
+          'rank_gender': user['rank_gender']
+        }
   return None

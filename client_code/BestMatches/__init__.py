@@ -4,19 +4,17 @@ import anvil.server
 import time  # Needed for sleep delay
 
 class BestMatches(BestMatchesTemplate):
-  def __init__(self, matches=None, user=None, **properties):
+  def __init__(self, matches=None, user_data=None, **properties):
     self.init_components(**properties)
 
-    # If user wasn't passed in, try to get it from session
-    if user is None:
-      user = anvil.server.call('get_logged_in_user')
-      if not user:
-        alert("Please log in first.")
-        open_form("Login")
-        return
+    # ✅ No need to fetch user from session if we already passed preferences
+    if matches is None or user_data is None:
+      alert("Missing user or match data. Please sign in again.")
+      open_form("Login")
+      return
 
-    if matches is None:
-      matches = anvil.server.call('get_top_pet_matches', user)
+    # You can now use self.user_data['preferences']['type'], etc.
+    self.user_data = user_data
 
     pets_with_scores = []
     for match in matches:
@@ -39,5 +37,5 @@ class BestMatches(BestMatchesTemplate):
 
   def pet_list_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('FullPetList')
+    open_form()
 
