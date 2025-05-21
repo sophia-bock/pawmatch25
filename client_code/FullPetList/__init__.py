@@ -1,9 +1,12 @@
-from ._anvil_designer import BestMatchesTemplate
+from ._anvil_designer import FullPetListTemplate
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 import time  # Needed for sleep delay
 
-class BestMatches(BestMatchesTemplate):
+class FullPetList(FullPetListTemplate):
   def __init__(self, matches=None, user=None, **properties):
     self.init_components(**properties)
 
@@ -37,7 +40,6 @@ class BestMatches(BestMatchesTemplate):
 
     self.matches_repeating_panel.items = pets_with_scores
 
-  def pet_list_button_click(self, **event_args):
+  def best_matches_button_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('FullPetList')
-
+    open_form('BestMatches')
